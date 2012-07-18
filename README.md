@@ -52,15 +52,15 @@ socket.emit('creature', 'create', { id: 'bob' } , function(err, bob) {
   console.log('created: ', bob);
 };
 ```
+```js
+Socket.io Event                                          Action
 
-     Socket.io Event                                          Action
-
-     socket.emit('creature', 'create', data, callback)    =>  Creature.create()
-     socket.emit('creature', 'get', data, callback)       =>  Creature.get()
-     socket.emit('creature', 'all', data, callback)       =>  Creature.all()
-     socket.emit('creature', 'update', data, callback)    =>  Creature.update()
-     socket.emit('creature', 'destroy', data, callback)   =>  Creature.destroy()
-
+socket.emit('creature', 'create', data, callback)    =>  Creature.create()
+socket.emit('creature', 'get', data, callback)       =>  Creature.get()
+socket.emit('creature', 'all', data, callback)       =>  Creature.all()
+socket.emit('creature', 'update', data, callback)    =>  Creature.update()
+socket.emit('creature', 'destroy', data, callback)   =>  Creature.destroy()
+```
 
   The socket server will delegate all incoming `Creature` events to the resource and respond back with the appropriate result.
 
