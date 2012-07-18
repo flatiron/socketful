@@ -6,7 +6,7 @@ Creates [socket.io](http://socket.io) servers and event maps for [resourceful](h
 
 # Explanation
 
-The sockful project removes the process of writing boilerplate socket.io event mapping code for interacting with  [resourceful](http://github.com/flatiron/resourceful) resources. sockful uses <a href="http://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> to reflect a socket.io server interface which maps all the socket.io events needed to perform basic [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with [resourceful](http://github.com/flatiron/resourceful). sockful also has the ability to expose additional arbitrary <a href="#remote">remote resource methods</a> through socket.io
+The sockful project removes the process of writing boilerplate socket.io event mapping code for interacting with  [resourceful](http://github.com/flatiron/resourceful) resources. sockful uses <a href="http://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> to reflect a socket.io server interface which maps all the socket.io events needed to perform basic [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with [resourceful](http://github.com/flatiron/resourceful). sockful also has the ability to expose additional arbitrary <a href="#remote">remote resource methods</a> in socket.io
 
 Through the removal of this boilerplate code, sockful creates a robust, standardized, and re-usable socket.io interface for any [resourceful](http://github.com/flatiron/resourceful) resource.
 
