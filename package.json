@@ -1,0 +1,28 @@
+{
+  "name": "sockful",
+  "description": "creates socket.io event maps for resourceful.",
+  "author": "Nodejitsu Inc. <info@nodejitsu.com>",
+  "maintainers": [
+    { "name": "Marak Squires", "email": "marak@nodejitsu.com" }
+  ],
+  "version": "0.3.0",
+  "main": "./lib/sockful",
+  "dependencies": {
+    "socket.io": "0.9.x",
+    "resourceful": "0.3.x",
+    "utile": "0.1.x"
+  },
+  "devDependencies": {
+    "vows": "0.6.x",
+    "socket.io-client": "0.9.x"
+  },
+  "bundleDependencies": ["resourceful"],
+  "optionalDependencies": {},
+  "engines": {
+    "node": "0.6.x || 0.8.x"
+  },
+  "scripts": {
+    "test": "vows --spec --isolate",
+    "start": "node examples/server.js"
+  }
+}

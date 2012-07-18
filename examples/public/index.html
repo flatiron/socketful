@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <script src="/socket.io/socket.io.js" type="text/javascript"></script>
+    <script>
+      var socket = io.connect('http://localhost');
+      var name = prompt('creature name?');
+      var type = prompt('creature type?');
+      socket.emit('creatures', 'create', { id: name, type: type }, function(err, result) {
+        if(err) {
+          alert('Error \n\n' + JSON.stringify(err, true, 2));
+        } else {
+          alert('Created creature! \n\n' +  JSON.stringify(result, true, 2));
+        }
+      })
+    </script>
+  </head>
+  <body>
+    <h1>View Source to reveal</h1>
+  </body>
+</html>
