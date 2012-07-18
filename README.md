@@ -6,9 +6,11 @@ Creates [socket.io](http://socket.io) servers and event maps for [resourceful](h
 
 # Explanation
 
-The socketful project removes the process of writing boilerplate socket.io event mapping code for interacting with  [resourceful](http://github.com/flatiron/resourceful) resources. socketful uses <a href="http://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> to reflect a socket.io server interface which maps all the socket.io events needed to perform basic [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with [resourceful](http://github.com/flatiron/resourceful). socketful also has the ability to expose additional arbitrary <a href="#remote">remote resource methods</a> in socket.io
+The socketful project removes the process of writing boilerplate socket.io event mapping code for interacting with  [resourceful](http://github.com/flatiron/resourceful) resources. socketful uses <a href="http://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> to reflect a [socket.io](http://socket.io) server interface that maps all socket.io events needed to perform basic real-time [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with [resourceful](http://github.com/flatiron/resourceful). socketful also has the ability to expose additional arbitrary <a href="#remote">remote resource methods</a> in socket.io
 
 Through the removal of this boilerplate code, socketful creates a robust, standardized, and re-usable socket.io interface for any [resourceful](http://github.com/flatiron/resourceful) resource.
+
+**Remark:** If you require [RESTful](http://en.wikipedia.org/wiki/Representational_state_transfer) HTTP routing instead of sockets, try the [restful](http://github.com/flatiron/restful) library.
 
 # Installation
 
