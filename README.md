@@ -53,13 +53,13 @@ socket.emit('creatures', 'create', { id: 'bob' } , function(err, bob) {
 };
 ```
 ```
-Socket.io Event                                          Action
+Socket       Resource     Action    Payload  Callback        Resource Method
 
-socket.emit('creatures', 'create',  data, callback)   =>  Creature.create()
-socket.emit('creatures', 'get',     data, callback)   =>  Creature.get()
-socket.emit('creatures', 'all',     data, callback)   =>  Creature.all()
-socket.emit('creatures', 'update',  data, callback)   =>  Creature.update()
-socket.emit('creatures', 'destroy', data, callback)   =>  Creature.destroy()
+socket.emit('creatures', 'create',  data,    callback)   =>  Creature.create()
+socket.emit('creatures', 'get',     data,    callback)   =>  Creature.get()
+socket.emit('creatures', 'all',     data,    callback)   =>  Creature.all()
+socket.emit('creatures', 'update',  data,    callback)   =>  Creature.update()
+socket.emit('creatures', 'destroy', data,    callback)   =>  Creature.destroy()
 ```
 
   The socket.io server will delegate all incoming `Creature` events to the resource and respond back with the appropriate result.
