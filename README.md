@@ -1,7 +1,6 @@
+# Experimental / Unreleased
 
 # sockful
-
-[![Build Status](https://secure.travis-ci.org/flatiron/sockful.png)](http://travis-ci.org/flatiron/sockful)
 
 Creates [socket.io](http://socket.io) servers and event maps for [resourceful](http://github.com/flatiron/resourceful) resources. Can be used as a stand-alone module or as a [Flatiron](http://github.com/flatiron/) plugin.
 
@@ -52,13 +51,13 @@ socket.emit('creature', 'create', { id: 'bob' } , function(err, bob) {
 };
 ```
 
-     Socket Event                                           Action
+     Socket Event                                             Action
 
-     socket.emit('creature', 'create', data, callback)  => Creature.create()
-     socket.emit('creature', 'get', data, callback)     => Creature.get()
-     socket.emit('creature', 'all', data, callback)     => Creature.all()
-     socket.emit('creature', 'update', data, callback)  => Creature.update()
-     socket.emit('creature', 'destroy', data, callback) => Creature.destroy()
+     socket.emit('creature', 'create', data, callback)    =>  Creature.create()
+     socket.emit('creature', 'get', data, callback)       =>  Creature.get()
+     socket.emit('creature', 'all', data, callback)       =>  Creature.all()
+     socket.emit('creature', 'update', data, callback)    =>  Creature.update()
+     socket.emit('creature', 'destroy', data, callback)   =>  Creature.destroy()
 
 
   The socket server will delegate all incoming Creature events to the resource and respond back with the appropriate result.
@@ -117,6 +116,7 @@ There are several ways to provide security and authorization for accessing resou
 
  - Full `resourceful` property type support ( numeric, boolean, array, object )
  - Full `resourceful` nested property schema support
+ - Better browser / isomorphic support
  - Add ability to specify schemas for remote method argument payloads
  - Improve Tests
  - Add better error support via `errs` library
