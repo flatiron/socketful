@@ -2,7 +2,7 @@
 
 # socketful
 
-Reflects [socket.io](http://socket.io) servers and event maps from [resourceful](http://github.com/flatiron/resourceful) resources. Can be used as a stand-alone module or as a [Flatiron](http://github.com/flatiron/) plugin.
+Reflects [socket.io](http://socket.io) servers from [resourceful](http://github.com/flatiron/resourceful) resources. Can be used as a stand-alone module or as a [Flatiron](http://github.com/flatiron/) plugin.
 
 # Explanation
 
