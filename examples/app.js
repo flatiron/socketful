@@ -1,5 +1,5 @@
 /*
- * app.js
+ * app.js Example `socketful` socket.io app
  *
  * (C) 2012, Nodejitsu Inc.
  *
@@ -7,8 +7,8 @@
  
 var flatiron    = require('flatiron'),
     fixtures    = require('../test/fixtures'),
-    ecstatic = require('ecstatic'),
-    socketful     = require('../lib/socketful'),
+    ecstatic    = require('ecstatic'),
+    socketful   = require('../lib/socketful'),
     resourceful = require('resourceful');
 
 var app = module.exports = flatiron.app;
@@ -24,7 +24,6 @@ app.use(flatiron.plugins.http, {
     ecstatic(__dirname + '/public')
   ]
 });
-//app.use(socketful);
 app.start(8000);
 
 socketful.createServer([app.resources.Creature], { server: app.server });
