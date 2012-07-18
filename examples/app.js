@@ -8,7 +8,7 @@
 var flatiron    = require('flatiron'),
     fixtures    = require('../test/fixtures'),
     ecstatic = require('ecstatic'),
-    sockful     = require('../lib/sockful'),
+    socketful     = require('../lib/socketful'),
     resourceful = require('resourceful');
 
 var app = module.exports = flatiron.app;
@@ -24,10 +24,10 @@ app.use(flatiron.plugins.http, {
     ecstatic(__dirname + '/public')
   ]
 });
-//app.use(sockful);
+//app.use(socketful);
 app.start(8000);
 
-sockful.createServer([app.resources.Creature], { server: app.server });
+socketful.createServer([app.resources.Creature], { server: app.server });
 
 console.log(' > http server started on port 8000');
 console.log(' > visit: http://localhost:8000/ ');

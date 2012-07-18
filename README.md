@@ -1,43 +1,43 @@
 # Experimental / Unreleased
 
-# sockful
+# socketful
 
 Creates [socket.io](http://socket.io) servers and event maps for [resourceful](http://github.com/flatiron/resourceful) resources. Can be used as a stand-alone module or as a [Flatiron](http://github.com/flatiron/) plugin.
 
 # Explanation
 
-The sockful project removes the process of writing boilerplate socket.io event mapping code for interacting with  [resourceful](http://github.com/flatiron/resourceful) resources. sockful uses <a href="http://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> to reflect a socket.io server interface which maps all the socket.io events needed to perform basic [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with [resourceful](http://github.com/flatiron/resourceful). sockful also has the ability to expose additional arbitrary <a href="#remote">remote resource methods</a> in socket.io
+The socketful project removes the process of writing boilerplate socket.io event mapping code for interacting with  [resourceful](http://github.com/flatiron/resourceful) resources. socketful uses <a href="http://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> to reflect a socket.io server interface which maps all the socket.io events needed to perform basic [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations with [resourceful](http://github.com/flatiron/resourceful). socketful also has the ability to expose additional arbitrary <a href="#remote">remote resource methods</a> in socket.io
 
-Through the removal of this boilerplate code, sockful creates a robust, standardized, and re-usable socket.io interface for any [resourceful](http://github.com/flatiron/resourceful) resource.
+Through the removal of this boilerplate code, socketful creates a robust, standardized, and re-usable socket.io interface for any [resourceful](http://github.com/flatiron/resourceful) resource.
 
 # Installation
 
-     npm install sockful
+     npm install socketful
 
 # Usage
 
 ## As a Flatiron Plugin
 
-To use sockful as a <a href="http://github.com/flatiron/flatiron">Flatiron</a> plugin you will have to:
+To use socketful as a <a href="http://github.com/flatiron/flatiron">Flatiron</a> plugin you will have to:
 
  - Define resource(s) in your Flatiron app
- - Use the sockful plugin in your Flatiron app
- - Set `sockful=true` on the resource to let Flatiron know to expose it
+ - Use the socketful plugin in your Flatiron app
+ - Set `socketful=true` on the resource to let Flatiron know to expose it
 
-Here is a code example of using sockful as a Flatiron plugin: <a href="https://github.com/flatiron/sockful/blob/master/examples/app.js">https://github.com/flatiron/sockful/blob/master/examples/app.js</a>
+Here is a code example of using socketful as a Flatiron plugin: <a href="https://github.com/flatiron/socketful/blob/master/examples/app.js">https://github.com/flatiron/socketful/blob/master/examples/app.js</a>
 
 ## As a stand-alone server
 
-To use sockful as a stand-alone server you will have to:
+To use socketful as a stand-alone server you will have to:
 
  - Define resource(s)
- - Create a new server based on the resource(s) using `sockful.createServer`
+ - Create a new server based on the resource(s) using `socketful.createServer`
 
-Here is a code example of using sockful as a stand-alone server: <a href="https://github.com/flatiron/sockful/blob/master/examples/server.js">https://github.com/flatiron/sockful/blob/master/examples/server.js</a>
+Here is a code example of using socketful as a stand-alone server: <a href="https://github.com/flatiron/socketful/blob/master/examples/server.js">https://github.com/flatiron/socketful/blob/master/examples/server.js</a>
 
 ## Core Socket.io Mappings
 
-  By default, `sockful` will map all `Resourceful` methods in the following signature:
+  By default, `socketful` will map all `Resourceful` methods in the following signature:
 
 ```js
 server.on(resource, action, payload, callback);
@@ -64,14 +64,14 @@ socket.emit('creature', 'create', { id: 'bob' } , function(err, bob) {
 
 ## Relational Resources
 
-To define relational data in sockful you will have to:
+To define relational data in socketful you will have to:
 
  - Define the relationship in the resource itself using the resourceful `Resource.parent()` API
  - Create a new server based on the resource(s)
 
-sockful will then properly reflect the relational properties of your resources into the socket server.
+socketful will then properly reflect the relational properties of your resources into the socket server.
 
-Here is a simple code example of using sockful with `Albums` and `Songs`: <a href="https://github.com/flatiron/sockful/blob/master/examples/server.js">https://github.com/flatiron/sockful/blob/master/examples/server.js</a>
+Here is a simple code example of using socketful with `Albums` and `Songs`: <a href="https://github.com/flatiron/socketful/blob/master/examples/server.js">https://github.com/flatiron/socketful/blob/master/examples/server.js</a>
 
 
 
@@ -80,9 +80,9 @@ Here is a simple code example of using sockful with `Albums` and `Songs`: <a hre
 
 In many cases, you'll want to expose additional methods on a Resource through socket.io outside of the included CRUD operations: `create`, `all`, `get`, `update`, `destroy`.
 
-sockful has built in support for easily exposing arbitrary remote resource methods.
+socketful has built in support for easily exposing arbitrary remote resource methods.
 
-Consider the example of a `Creature`. We've already defined all the sockful CRUD events, but a Creature also needs to eat! 
+Consider the example of a `Creature`. We've already defined all the socketful CRUD events, but a Creature also needs to eat! 
 
 Simply create a new method on the `Creature` resource called `feed`.
 
@@ -104,7 +104,7 @@ It's easy as that! By setting the `feed` method to remote, the following events 
 
 ## Resource Security
 
-There are several ways to provide security and authorization for accessing resource methods exposed with sockful. The recommended pattern for authorization is to use resourceful's ability for `before` and `after` hooks. In these hooks, you can add additional business logic to restrict access to the resource's methods. 
+There are several ways to provide security and authorization for accessing resource methods exposed with socketful. The recommended pattern for authorization is to use resourceful's ability for `before` and `after` hooks. In these hooks, you can add additional business logic to restrict access to the resource's methods. 
 
 **TL;DR; For security and authorization, you should use resourceful's `before` and `after` hooks.**
 

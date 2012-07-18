@@ -1,12 +1,12 @@
 {
-  "name": "sockful",
+  "name": "socketful",
   "description": "creates socket.io event maps for resourceful.",
   "author": "Nodejitsu Inc. <info@nodejitsu.com>",
   "maintainers": [
     { "name": "Marak Squires", "email": "marak@nodejitsu.com" }
   ],
   "version": "0.3.0",
-  "main": "./lib/sockful",
+  "main": "./lib/socketful",
   "dependencies": {
     "socket.io": "0.9.x",
     "resourceful": "0.3.x",

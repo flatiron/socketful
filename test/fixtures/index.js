@@ -1,7 +1,7 @@
 var fixtures = exports,
 assert = require('assert');
 
-var sockful = require('../../lib/sockful');
+var socketful = require('../../lib/socketful');
 var resourceful = require('resourceful');
 var http = require('http');
 
@@ -12,7 +12,7 @@ fixtures.Creature = resourceful.define('creature', function () {
 
   var self = this;
   
-  this.sockful = true;
+  this.socketful = true;
   //
   // Specify a storage engine
   //
@@ -61,7 +61,7 @@ fixtures.Creature = resourceful.define('creature', function () {
   this._die = function (food) {
     //
     // Remark: We'll consider the _die function "private",
-    // in the sense that sockful will not expose it
+    // in the sense that socketful will not expose it
     //
     console.log('creature died.');
   }
@@ -98,14 +98,14 @@ fixtures.User = resourceful.define('user', function () {
 
 fixtures.Album = resourceful.define('album', function () {
   //this.use('couchdb', {database: "test3" })
-  this.sockful = true;
+  this.socketful = true;
   
   this.use('memory');
   this.string('title');
 });
 
 fixtures.Song = resourceful.define('song', function () {
-  this.sockful = true;
+  this.socketful = true;
   
   //this.use('couchdb', {database: "test3" })
   this.use('memory');
@@ -128,7 +128,7 @@ fixtures.Song.pause.remote = true;
 fixtures.Song._encode = function () {
   //
   // Consider this a "private" method,
-  // in that it won't be exposed through sockful
+  // in that it won't be exposed through socketful
   //
 };
 

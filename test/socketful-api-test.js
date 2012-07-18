@@ -1,5 +1,5 @@
 /*
- * sockful-api-test.js: Tests for `sockful` events
+ * socketful-api-test.js: Tests for `socketful` events
  *
  * (C) 2012, Nodejitsu Inc.
  *
@@ -7,17 +7,17 @@
 
 var assert = require('assert'),
    vows = require('vows'),
-   sockful = require('../lib/sockful'),
+   socketful = require('../lib/socketful'),
    io = require('socket.io-client'),
    fixtures = require('./fixtures');
 
 var server, client;
 
-vows.describe('sockful/sockful-api-test').addBatch({
- 'When using `sockful`': {
+vows.describe('socketful/socketful-api-test').addBatch({
+ 'When using `socketful`': {
    'creating a new server with one resource': {
      topic: function () {
-       server = sockful.createServer(fixtures.Creature, {}, this.callback);
+       server = socketful.createServer(fixtures.Creature, {}, this.callback);
      },
      'should return a server': function (err, server) {
        assert.isObject(server);
@@ -28,7 +28,7 @@ vows.describe('sockful/sockful-api-test').addBatch({
    }
  }
 }).addBatch({
-  'When using `sockful`': {
+  'When using `socketful`': {
     'running resource tests against the server': {
       topic: function () {
         var self = this;
