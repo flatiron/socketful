@@ -52,13 +52,13 @@ socket.emit('creature', 'create', { id: 'bob' } , function(err, bob) {
   console.log('created: ', bob);
 };
 ```
-```js
+```
 Socket.io Event                                          Action
 
-socket.emit('creature', 'create', data, callback)    =>  Creature.create()
-socket.emit('creature', 'get', data, callback)       =>  Creature.get()
-socket.emit('creature', 'all', data, callback)       =>  Creature.all()
-socket.emit('creature', 'update', data, callback)    =>  Creature.update()
+socket.emit('creature', 'create',  data, callback)   =>  Creature.create()
+socket.emit('creature', 'get',     data, callback)   =>  Creature.get()
+socket.emit('creature', 'all',     data, callback)   =>  Creature.all()
+socket.emit('creature', 'update',  data, callback)   =>  Creature.update()
 socket.emit('creature', 'destroy', data, callback)   =>  Creature.destroy()
 ```
 
