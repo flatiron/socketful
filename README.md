@@ -2,7 +2,7 @@
 
 # socketful
 
-Creates [socket.io](http://socket.io) servers and event maps for [resourceful](http://github.com/flatiron/resourceful) resources. Can be used as a stand-alone module or as a [Flatiron](http://github.com/flatiron/) plugin.
+Reflects [socket.io](http://socket.io) servers and event maps from [resourceful](http://github.com/flatiron/resourceful) resources. Can be used as a stand-alone module or as a [Flatiron](http://github.com/flatiron/) plugin.
 
 # Explanation
 
@@ -48,21 +48,21 @@ server.on(resource, action, payload, callback);
 **Example:**
 
 ```js
-socket.emit('creature', 'create', { id: 'bob' } , function(err, bob) {
+socket.emit('creatures', 'create', { id: 'bob' } , function(err, bob) {
   console.log('created: ', bob);
 };
 ```
 ```
 Socket.io Event                                          Action
 
-socket.emit('creature', 'create',  data, callback)   =>  Creature.create()
-socket.emit('creature', 'get',     data, callback)   =>  Creature.get()
-socket.emit('creature', 'all',     data, callback)   =>  Creature.all()
-socket.emit('creature', 'update',  data, callback)   =>  Creature.update()
-socket.emit('creature', 'destroy', data, callback)   =>  Creature.destroy()
+socket.emit('creatures', 'create',  data, callback)   =>  Creature.create()
+socket.emit('creatures', 'get',     data, callback)   =>  Creature.get()
+socket.emit('creatures', 'all',     data, callback)   =>  Creature.all()
+socket.emit('creatures', 'update',  data, callback)   =>  Creature.update()
+socket.emit('creatures', 'destroy', data, callback)   =>  Creature.destroy()
 ```
 
-  The socket server will delegate all incoming `Creature` events to the resource and respond back with the appropriate result.
+  The socket.io server will delegate all incoming `Creature` events to the resource and respond back with the appropriate result.
 
 ## Relational Resources
 

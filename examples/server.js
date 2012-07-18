@@ -1,5 +1,5 @@
 /*
- * server.js: Simple http server with `socketful` server
+ * server.js: Simple socket.io `socketful` server
  *
  * (C) 2012, Nodejitsu Inc.
  *
