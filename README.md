@@ -23,8 +23,8 @@ Through the removal of this boilerplate code, socketful creates a robust, standa
 To use socketful as a <a href="http://github.com/flatiron/flatiron">Flatiron</a> plugin you will have to:
 
  - Define resource(s) in your Flatiron app
- - Use the socketful plugin in your Flatiron app
- - Set `socketful=true` on the resource to let Flatiron know to expose it
+ - Use the Flatiron `http` plugin
+ - Pass the Flatiron `app.server` instance to `socketful.createServer`
 
 Here is a code example of using socketful as a Flatiron plugin: <a href="https://github.com/flatiron/socketful/blob/master/examples/app.js">https://github.com/flatiron/socketful/blob/master/examples/app.js</a>
 
