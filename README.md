@@ -45,7 +45,7 @@ Here is a code example of using socketful as a stand-alone server: <a href="http
 server.on(resource, action, payload, callback);
 ```
 
-Example:
+**Example:**
 
 ```js
 socket.emit('creature', 'create', { id: 'bob' } , function(err, bob) {
@@ -53,7 +53,7 @@ socket.emit('creature', 'create', { id: 'bob' } , function(err, bob) {
 };
 ```
 
-     Socket Event                                             Action
+     Socket.io Event                                          Action
 
      socket.emit('creature', 'create', data, callback)    =>  Creature.create()
      socket.emit('creature', 'get', data, callback)       =>  Creature.get()
@@ -62,7 +62,7 @@ socket.emit('creature', 'create', { id: 'bob' } , function(err, bob) {
      socket.emit('creature', 'destroy', data, callback)   =>  Creature.destroy()
 
 
-  The socket server will delegate all incoming Creature events to the resource and respond back with the appropriate result.
+  The socket server will delegate all incoming `Creature` events to the resource and respond back with the appropriate result.
 
 ## Relational Resources
 
@@ -101,8 +101,9 @@ Creature.feed.remote = true
 
 It's easy as that! By setting the `feed` method to remote, the following events will exist in the `socket.io` server.
 
-     socket.emit('creature', 'feed', data, callback)  => Creature.feed()
-
+```js
+socket.emit('creature', 'feed', data, callback)  => Creature.feed()
+```
 
 ## Resource Security
 
