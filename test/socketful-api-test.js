@@ -48,7 +48,7 @@ vows.describe('socketful/socketful-api-test').addBatch({
  }).addBatch({
   "creating a creature" : {
     topic: function() {
-      client.emit('creatures', 'create', { id: "bob" }, this.callback);
+      client.emit('creature', 'create', { id: "bob" }, this.callback);
     },
     'should create a new creature' : function (err, result) {
       assert.isNull(err)
@@ -62,7 +62,7 @@ vows.describe('socketful/socketful-api-test').addBatch({
 }).addBatch({
   "show created creature" : {
     topic: function() {
-      client.emit('creatures', 'get', { id: "bob" }, this.callback);
+      client.emit('creature', 'get', { id: "bob" }, this.callback);
     },
     'should create a new creature' : function (err, result) {
       assert.isNull(err)
@@ -73,22 +73,22 @@ vows.describe('socketful/socketful-api-test').addBatch({
     }
   }
 }).addBatch({
-  "all creatures" : {
+  "all creature" : {
     topic: function() {
-      client.emit('creatures', 'all', {}, this.callback);
+      client.emit('creature', 'all', {}, this.callback);
     },
-    'should list all creatures' : function (err, result) {
+    'should list all creature' : function (err, result) {
       assert.isNull(err)
       assert.isArray(result)
     },
-    'should return the right amount of creatures' : function (err, result) {
+    'should return the right amount of creature' : function (err, result) {
       assert.equal(result.length, 1)
     }
   }
 }).addBatch({
   "add another creature" : {
     topic: function() {
-      client.emit('creatures', 'create', { id: "larry", life: 10 }, this.callback);
+      client.emit('creature', 'create', { id: "larry", life: 10 }, this.callback);
     },
     'should create a new creature' : function (err, result) {
       assert.isNull(err)
@@ -99,22 +99,22 @@ vows.describe('socketful/socketful-api-test').addBatch({
     }
   }
 }).addBatch({
-  "all creatures" : {
+  "all creature" : {
     topic: function() {
-      client.emit('creatures', 'all', {}, this.callback);
+      client.emit('creature', 'all', {}, this.callback);
     },
-    'should list all creatures' : function (err, result) {
+    'should list all creature' : function (err, result) {
       assert.isNull(err)
       assert.isArray(result)
     },
-    'should return the right amount of creatures' : function (err, result) {
+    'should return the right amount of creature' : function (err, result) {
       assert.equal(result.length, 2)
     }
   }
 }).addBatch({
   "update a creature" : {
     topic: function() {
-      client.emit('creatures', 'update', { id: "larry", "type": "godzilla" }, this.callback);
+      client.emit('creature', 'update', { id: "larry", "type": "godzilla" }, this.callback);
     },
     'should return updated creature' : function (err, result) {
       assert.isNull(err)
@@ -127,7 +127,7 @@ vows.describe('socketful/socketful-api-test').addBatch({
 }).addBatch({
   "destroy a creature" : {
     topic: function() {
-      client.emit('creatures', 'destroy', { id: "bob" }, this.callback);
+      client.emit('creature', 'destroy', { id: "bob" }, this.callback);
     },
     'should not error' : function (err, result) {
       assert.isNull(err)
@@ -136,29 +136,29 @@ vows.describe('socketful/socketful-api-test').addBatch({
 }).addBatch({
   "getting destroyed creature" : {
     topic: function() {
-      client.emit('creatures', 'get', { id: "bob" }, this.callback);
+      client.emit('creature', 'get', { id: "bob" }, this.callback);
     },
     'should error' : function (err, result) {
       assert.isNotNull(err)
     }
   }
 }).addBatch({
-  "all creatures" : {
+  "all creature" : {
     topic: function() {
-      client.emit('creatures', 'all', {}, this.callback);
+      client.emit('creature', 'all', {}, this.callback);
     },
-    'should list all creatures' : function (err, result) {
+    'should list all creature' : function (err, result) {
       assert.isNull(err)
       assert.isArray(result)
     },
-    'should return the right amount of creatures' : function (err, result) {
+    'should return the right amount of creature' : function (err, result) {
       assert.equal(result.length, 1)
     }
   }
 }).addBatch({
   "feed the creature" : {
     topic: function() {
-      client.emit('creatures', 'feed', { id: 'larry' }, this.callback);
+      client.emit('creature', 'feed', { id: 'larry' }, this.callback);
     },
     'should not error' : function (err, result) {
       assert.isNull(err)
@@ -170,7 +170,7 @@ vows.describe('socketful/socketful-api-test').addBatch({
 }).addBatch({
   "get the creature" : {
     topic: function() {
-      client.emit('creatures', 'get', { id: 'larry' }, this.callback);
+      client.emit('creature', 'get', { id: 'larry' }, this.callback);
     },
     'should not error' : function (err, result) {
       assert.isNull(err)
