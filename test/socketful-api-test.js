@@ -124,7 +124,24 @@ vows.describe('socketful/socketful-api-test').addBatch({
       assert.equal(result.type, "godzilla")
     }
   }
-}).addBatch({
+})
+/* TODO
+.addBatch({
+  "get many at once by id" : {
+    topic: function() {
+      client.emit('creature', 'get', { id: ["bob", "larry"] }, this.callback);
+    },
+    'should not error' : function (err, result) {
+      assert.isNull(err)
+    },
+    'should return both creatures' : function (err, result) {
+      console.log('sss',err, result)
+      assert.isArray(result);
+    }
+  }
+})
+*/
+.addBatch({
   "destroy a creature" : {
     topic: function() {
       client.emit('creature', 'destroy', { id: "bob" }, this.callback);
