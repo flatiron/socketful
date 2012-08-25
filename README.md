@@ -1,5 +1,3 @@
-# Experimental / Unreleased
-
 # socketful
 
 Reflects [socket.io](http://socket.io) servers from [resourceful](http://github.com/flatiron/resourceful) resources. Can be used as a stand-alone module or as a [Flatiron](http://github.com/flatiron/) plugin.
@@ -17,6 +15,18 @@ Through the removal of this boilerplate code, socketful creates a robust, standa
      npm install socketful
 
 # Usage
+
+## Define resource(s)
+
+```js
+var resourceful = require('resourceful'),
+    Creature    = resourceful.define('creature');
+
+Creature.property('type', String, { default: "dragon" });
+Creature.property('life', Number, { default: 10, min: 0, max: 20 });
+```
+
+*[additional API documentation for defining resources](http://github.com/flatiron/resourceful)*
 
 ## As a Flatiron Plugin
 
@@ -48,34 +58,21 @@ server.on(resource, action, payload, callback);
 **Example:**
 
 ```js
-socket.emit('creatures', 'create', { id: 'bob' } , function(err, bob) {
+socket.emit('creature', 'create', { id: 'bob' } , function(err, bob) {
   console.log('created: ', bob);
 };
 ```
 ```
 Socket       Resource     Action    Payload  Callback        Resource Method
 
-socket.emit('creatures', 'create',  data,    callback)   =>  Creature.create()
-socket.emit('creatures', 'get',     data,    callback)   =>  Creature.get()
-socket.emit('creatures', 'all',     data,    callback)   =>  Creature.all()
-socket.emit('creatures', 'update',  data,    callback)   =>  Creature.update()
-socket.emit('creatures', 'destroy', data,    callback)   =>  Creature.destroy()
+socket.emit('creature', 'create',  data,    callback)   =>  Creature.create()
+socket.emit('creature', 'get',     data,    callback)   =>  Creature.get()
+socket.emit('creature', 'all',     data,    callback)   =>  Creature.all()
+socket.emit('creature', 'update',  data,    callback)   =>  Creature.update()
+socket.emit('creature', 'destroy', data,    callback)   =>  Creature.destroy()
 ```
 
   The socket.io server will delegate all incoming `Creature` events to the resource and respond back with the appropriate result.
-
-## Relational Resources
-
-To define relational data in socketful you will have to:
-
- - Define the relationship in the resource itself using the resourceful `Resource.parent()` API
- - Create a new server based on the resource(s)
-
-socketful will then properly reflect the relational properties of your resources into the socket server.
-
-Here is a simple code example of using socketful with `Albums` and `Songs`: <a href="https://github.com/flatiron/socketful/blob/master/examples/server.js">https://github.com/flatiron/socketful/blob/master/examples/server.js</a>
-
-
 
 <a name"remote"></a>
 ## Exposing Arbitrary Resource Methods
@@ -117,9 +114,8 @@ There are several ways to provide security and authorization for accessing resou
 
 # TODO
 
- - Full `resourceful` property type support ( numeric, boolean, array, object )
- - Full `resourceful` nested property schema support
- - Better browser / isomorphic support
+ - Cleanup create / extend code for flatiron plugin
+ - Better browser / isomorphic support via resourceful `socketful` engine
  - Add ability to specify schemas for remote method argument payloads
  - Improve Tests
  - Add better error support via `errs` library

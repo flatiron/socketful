@@ -5,7 +5,7 @@
       var socket = io.connect('http://localhost');
       var name = prompt('creature name?');
       var type = prompt('creature type?');
-      socket.emit('creatures', 'create', { id: name, type: type }, function(err, result) {
+      socket.emit('creature', 'create', { id: name, type: type }, function(err, result) {
         if(err) {
           alert('Error \n\n' + JSON.stringify(err, true, 2));
         } else {

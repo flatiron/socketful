@@ -15,7 +15,10 @@ var app = module.exports = flatiron.app;
 app.resources = {};
 app.resources.Creature = fixtures.Creature;
 app.resources.Album = fixtures.Album;
+app.resources.Song = fixtures.Song;
 
+
+app.use(socketful);
 app.use(flatiron.plugins.http, {
   headers: {
     'x-powered-by': 'flatiron ' + flatiron.version
@@ -24,9 +27,13 @@ app.use(flatiron.plugins.http, {
     ecstatic(__dirname + '/public')
   ]
 });
+
 app.start(8000);
 
-socketful.createServer([app.resources.Creature], { server: app.server });
+// Socket.io
+// -------------------------------------------------- //
+
+var io = require('socket.io').listen(app.server);
 
 console.log(' > http server started on port 8000');
 console.log(' > visit: http://localhost:8000/ ');
