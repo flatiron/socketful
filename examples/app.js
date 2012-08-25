@@ -12,13 +12,6 @@ var flatiron    = require('flatiron'),
     resourceful = require('resourceful');
 
 var app = module.exports = flatiron.app;
-app.resources = {};
-app.resources.Creature = fixtures.Creature;
-app.resources.Album = fixtures.Album;
-app.resources.Song = fixtures.Song;
-
-
-app.use(socketful);
 app.use(flatiron.plugins.http, {
   headers: {
     'x-powered-by': 'flatiron ' + flatiron.version
@@ -28,12 +21,16 @@ app.use(flatiron.plugins.http, {
   ]
 });
 
-app.start(8000);
-
-// Socket.io
-// -------------------------------------------------- //
-
-var io = require('socket.io').listen(app.server);
-
-console.log(' > http server started on port 8000');
-console.log(' > visit: http://localhost:8000/ ');
+//
+// TODO: Better support for socketful to be use by:
+//
+//  app.use(socketful);
+//
+//
+app.start(8000, function(){
+  // Socket.io
+  // -------------------------------------------------- //
+  socketful.createServer([fixtures.Creature, fixtures.Album, fixtures.Song], { server: app.server });
+  console.log(' > http server started on port 8000');
+  console.log(' > visit: http://localhost:8000/ ');
+});
