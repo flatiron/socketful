@@ -1,5 +1,7 @@
 # socketful
 
+<img src="https://secure.travis-ci.org/flatiron/socketful.png?branch=master"></img>
+
 Reflects [socket.io](http://socket.io) servers from [resourceful](http://github.com/flatiron/resourceful) resources. Can be used as a stand-alone module or as a [Flatiron](http://github.com/flatiron/) plugin.
 
 # Explanation
@@ -85,6 +87,7 @@ socket.emit('creature', 'create', user, function(err, result) {
   }
 });
 ```
+*see: <a href="https://github.com/flatiron/socketful/blob/master/examples/client.js">https://github.com/flatiron/socketful/blob/master/examples/client.js</a>*
 
 # Core Socket.io Mappings
 
