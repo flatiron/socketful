@@ -47,7 +47,46 @@ To use socketful as a stand-alone server you will have to:
 
 Here is a code example of using socketful as a stand-alone server: <a href="https://github.com/flatiron/socketful/blob/master/examples/server.js">https://github.com/flatiron/socketful/blob/master/examples/server.js</a>
 
-## Core Socket.io Mappings
+# Connecting to socketful
+
+## Browser
+
+```html
+<script src="/socket.io/socket.io.js" type="text/javascript"></script>
+<script>
+  var socket = io.connect('http://localhost');
+  var name = prompt('creature name?');
+  var type = prompt('creature type?');
+  socket.emit('creature', 'create', { id: name, type: type }, function(err, result) {
+    if(err) {
+      alert('Error \n\n' + JSON.stringify(err, true, 2));
+    } else {
+      alert('Created creature! \n\n' +  JSON.stringify(result, true, 2));
+    }
+  })
+</script>
+```
+
+*see: <a href="https://github.com/flatiron/socketful/blob/master/examples/public/index.html">https://github.com/flatiron/socketful/blob/master/examples/public/index.html</a>*
+
+## Node.js Client Script
+
+```js
+var io = require('socket.io-client');
+var socket = io.connect('http://localhost:8000');
+
+var user =  { id: 'bob', type: 'dragon' };
+
+socket.emit('creature', 'create', user, function(err, result) {
+  if(err) {
+    console.log('Error \n\n' + JSON.stringify(err, true, 2));
+  } else {
+    console.log('Created creature! \n\n' +  JSON.stringify(result, true, 2));
+  }
+});
+```
+
+# Core Socket.io Mappings
 
   By default, `socketful` will map all `Resourceful` methods in the following signature:
 
@@ -75,7 +114,7 @@ socket.emit('creature', 'destroy', data,    callback)   =>  Creature.destroy()
   The socket.io server will delegate all incoming `Creature` events to the resource and respond back with the appropriate result.
 
 <a name"remote"></a>
-## Exposing Arbitrary Resource Methods
+# Exposing Arbitrary Resource Methods
 
 In many cases, you'll want to expose additional methods on a Resource through socket.io outside of the included CRUD operations: `create`, `all`, `get`, `update`, `destroy`.
 
