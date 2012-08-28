@@ -12,9 +12,9 @@ var assert = require('assert'),
    fixtures = require('../fixtures');
 
 var server, client;
-vows.describe('socketful/socketful-api-test').addBatch({
+vows.describe('socketful/relational/one-many-test').addBatch({
  'When using `socketful`': {
-   'creating a new server with one resource': {
+   'creating a new server with a resource that has children': {
      topic: function () {
        server = socketful.createServer([fixtures.Album], {}, this.callback);
      },
